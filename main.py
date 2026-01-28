@@ -29,7 +29,8 @@ while True:
     if cmd[0] == "war": is_at_war = True; print("！！！宣戦布告！！！"); continue
 
     steps = 1
-    if cmd[0] == "wait": steps = int(cmd[1]) if len(cmd]>1 else 1
+    if cmd[0] == "wait":
+        steps = int(cmd[1]) if len(cmd) > 1 else 1
     elif cmd[0] == "move":
         uid, goal = cmd[1], cmd[2]
         if uid in all_units:
