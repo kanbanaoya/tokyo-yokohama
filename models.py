@@ -10,22 +10,24 @@ class Province:
         self.units = []
 
 class Unit:
+    # 部隊スペックとコスト
+    SPECS = {
+        "歩兵": {"speed": 4, "atk": 20, "def": 40, "cost": 150},
+        "戦車": {"speed": 12, "atk": 50, "def": 20, "cost": 400},
+        "山岳兵": {"speed": 5, "atk": 25, "def": 30, "cost": 200}
+    }
+
     def __init__(self, uid, u_type, side):
-        # 部隊ごとのスペック設定
-        specs = {
-            "歩兵": {"speed": 4, "atk": 20, "def": 40},
-            "戦車": {"speed": 12, "atk": 50, "def": 20},
-            "山岳兵": {"speed": 5, "atk": 25, "def": 30}
-        }
+        s = self.SPECS[u_type]
         self.uid = uid
         self.u_type = u_type
         self.side = side
         self.hp = 100
         self.max_hp = 100
-        self.speed = specs[u_type]["speed"]
-        self.attack = specs[u_type]["atk"]
-        self.defense = specs[u_type]["def"]
+        self.speed = s["speed"]
+        self.attack = s["atk"]
+        self.defense = s["def"]
         self.location = ""
-        self.destination = None # 最終目的地
-        self.path = []         # 経由するルート
-        self.progress = 0      # 現在の区間の進捗(km)
+        self.destination = None
+        self.path = []
+        self.progress = 0
