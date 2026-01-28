@@ -103,4 +103,6 @@ while True:
 
         # 勝利判定
         tokyo_hubs = [p for p in provinces.values() if p.initial_owner == "東京" and p.is_hub]
-        if
+        if all(p.owner == "神奈川" for p in tokyo_hubs):
+            print("\n" + "*"*50 + "\n★★★ 神奈川軍、勝利！ 東京全域を併合しました ★★★\n" + "*"*50)
+            break
